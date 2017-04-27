@@ -345,12 +345,12 @@ public:
 		    std::string& target_frame = *target_it;
 		    if (time_tolerance_ != ros::Duration(0.0))
 		    {
-			ready = ready && (tf_.canTransform(target_frame, frame_id, stamp) &&
+			ready = ready && !target_frame.empty() && ! frame_id.empty() && (tf_.canTransform(target_frame, frame_id, stamp) &&
 					  tf_.canTransform(target_frame, frame_id, stamp + time_tolerance_) );
 		    }
 		    else
 		    {
-			ready = ready && tf_.canTransform(target_frame, frame_id, stamp);
+			ready = ready && !target_frame.empty() && !frame_id.empty() && tf_.canTransform(target_frame, frame_id, stamp);
 		    }
 		}
 

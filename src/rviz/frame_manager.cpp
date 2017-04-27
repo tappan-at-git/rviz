@@ -289,7 +289,7 @@ bool FrameManager::transformHasProblems(const std::string& frame, ros::Time time
   }
 
   std::string tf_error;
-  bool transform_succeeded = tf_->canTransform(fixed_frame_, frame, time, &tf_error);
+  bool transform_succeeded = !fixed_frame_.empty() && !frame.empty() && tf_->canTransform(fixed_frame_, frame, time, &tf_error);
   if (transform_succeeded)
   {
     return false;
