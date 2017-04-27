@@ -35,11 +35,13 @@
 #include <string>
 #include <map>
 
+#ifndef Q_MOC_RUN
 #include <OgreVector3.h>
 #include <OgreQuaternion.h>
 #include <OgreAny.h>
 
 #include <urdf/model.h> // can be replaced later by urdf_model/types.h
+#endif
 
 namespace Ogre
 {
@@ -143,7 +145,7 @@ public:
   RobotLink* getRootLink() { return root_link_; }
   RobotLink* getLink( const std::string& name );
   RobotJoint* getJoint( const std::string& name );
-  
+
   typedef std::map< std::string, RobotLink* > M_NameToLink;
   typedef std::map< std::string, RobotJoint* > M_NameToJoint;
   const M_NameToLink& getLinks() const { return links_; }
@@ -177,7 +179,7 @@ public:
   };
 
   /** Call this before load() to subclass the RobotLink or RobotJoint class used in the link property.
-   * Example: 
+   * Example:
    *    class MyLinkFactory : public LinkFactory
    *    {
    *        ...  // overload createLink() and/or createJoint()
@@ -264,7 +266,7 @@ protected:
   BoolProperty* expand_joint_details_;
   BoolProperty* enable_all_links_;
   std::map<LinkTreeStyle, std::string> style_name_map_;
-  
+
   bool doing_set_checkbox_;   // used only inside setEnableAllLinksCheckbox()
   bool robot_loaded_;         // true after robot model is loaded.
 

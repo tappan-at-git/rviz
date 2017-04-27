@@ -34,7 +34,9 @@
 
 #include "rviz/message_filter_display.h"
 
+#ifndef Q_MOC_RUN
 #include <boost/ptr_container/ptr_vector.hpp>
+#endif
 
 namespace Ogre
 {

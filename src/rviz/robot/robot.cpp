@@ -35,6 +35,7 @@
 #include "properties/bool_property.h"
 #include "display_context.h"
 
+
 #include "ogre_helpers/object.h"
 #include "ogre_helpers/shape.h"
 #include "ogre_helpers/axes.h"
@@ -277,7 +278,7 @@ void Robot::load( const urdf::ModelInterface &urdf, bool visual, bool collision 
       {
         parent_joint_name = urdf_link->parent_joint->name;
       }
-      
+
       RobotLink* link = link_factory_->createLink( this,
                                                    urdf_link,
                                                    parent_joint_name,
@@ -493,7 +494,7 @@ void Robot::initLinkTreeStyle()
 
 bool Robot::styleShowLink(LinkTreeStyle style)
 {
-  return 
+  return
     style == STYLE_LINK_LIST ||
     style == STYLE_LINK_TREE ||
     style == STYLE_JOINT_LINK_TREE;
@@ -501,14 +502,14 @@ bool Robot::styleShowLink(LinkTreeStyle style)
 
 bool Robot::styleShowJoint(LinkTreeStyle style)
 {
-  return 
+  return
     style == STYLE_JOINT_LIST ||
     style == STYLE_JOINT_LINK_TREE;
 }
 
 bool Robot::styleIsTree(LinkTreeStyle style)
 {
-  return 
+  return
     style == STYLE_LINK_TREE ||
     style == STYLE_JOINT_LINK_TREE;
 }
